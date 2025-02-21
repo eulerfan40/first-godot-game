@@ -11,11 +11,19 @@ Godot offers a [web editor](https://editor.godotengine.org/releases/latest/), or
 ### Main Curriculum  
 [![Godot Tutorial](https://img.youtube.com/vi/LOhfqjmasi0/0.jpg)](https://www.youtube.com/watch?v=LOhfqjmasi0)  
 
-### Support  
+### Useful Links  
 
-Useful links:  
+Finished Project Target: 
+- [Brackeys First Game in Godot](https://github.com/Brackeys/first-game-in-godot)
+
+Support:  
 - [Google](https://www.google.com)  
 - [YouTube](https://www.youtube.com)  
 - [GDQuest Godot Tutorials](https://www.gdquest.com/tutorial/godot/)  
 - [Godot 2D Tutorials](https://docs.godotengine.org/en/stable/tutorials/2d/index.html)  
 - [Godot Forum](https://forum.godotengine.org/)  
+
+Free Assets:
+- [Itch.io](https://itch.io/)
+- [OpenGameArt](https://opengameart.org/)
+● [Kenney.nl](https://kenney.nl/)
