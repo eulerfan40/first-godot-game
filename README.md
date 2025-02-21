@@ -26,4 +26,4 @@ Support:
 Free Assets:
 - [Itch.io](https://itch.io/)
 - [OpenGameArt](https://opengameart.org/)
-● [Kenney.nl](https://kenney.nl/)
+- [Kenney.nl](https://kenney.nl/)
