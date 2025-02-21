@@ -1,17 +1,17 @@
 # First Godot Game  
 
-Godot offers a [web editor](https://editor.godotengine.org/releases/latest/), or you can [download it](https://godotengine.org/download/windows/) and follow along.  
+Godot offers a <a href="https://editor.godotengine.org/releases/latest/" target="_blank">web editor</a>, or you can <a href="https://godotengine.org/download/windows/" target="_blank">download it</a> and follow along.  
 
 ## Resources  
 
 ### Main Curriculum  
-[![Godot Tutorial](https://img.youtube.com/vi/LOhfqjmasi0/0.jpg)](https://www.youtube.com/watch?v=LOhfqjmasi0)  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LOhfqjmasi0" frameborder="0" allowfullscreen></iframe>  
 
 ### Support  
 
 Useful links:  
-- [Google](https://www.google.com)  
-- [YouTube](https://www.youtube.com)  
-- [GDQuest Godot Tutorials](https://www.gdquest.com/tutorial/godot/)  
-- [Godot 2D Tutorials](https://docs.godotengine.org/en/stable/tutorials/2d/index.html)  
-- [Godot Forum](https://forum.godotengine.org/)  
+- <a href="https://www.google.com" target="_blank">Google</a>  
+- <a href="https://www.youtube.com" target="_blank">YouTube</a>  
+- <a href="https://www.gdquest.com/tutorial/godot/" target="_blank">GDQuest Godot Tutorials</a>  
+- <a href="https://docs.godotengine.org/en/stable/tutorials/2d/index.html" target="_blank">Godot 2D Tutorials</a>  
+- <a href="https://forum.godotengine.org/" target="_blank">Godot Forum</a>  
