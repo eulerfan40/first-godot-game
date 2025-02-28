@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://wjwhst42a34h"]
+[gd_scene load_steps=13 format=4 uid="uid://wjwhst42a34h"]
 
 [ext_resource type="Texture2D" uid="uid://q888iyv4dx5c" path="res://assets/sprites/world_tileset.png" id="1_335wp"]
 [ext_resource type="PackedScene" uid="uid://cha8qatwwij5s" path="res://scenes/player.tscn" id="1_w08h2"]
+[ext_resource type="PackedScene" uid="uid://b1jbqbyvnv8br" path="res://scenes/platform.tscn" id="3_35b1h"]
+[ext_resource type="PackedScene" uid="uid://bjt4pb3d8dfxd" path="res://scenes/coin.tscn" id="4_buuti"]
+[ext_resource type="PackedScene" uid="uid://brecll3abwipk" path="res://scenes/killzone.tscn" id="4_hnrr0"]
+[ext_resource type="PackedScene" uid="uid://1ib8io3fqd22" path="res://scenes/enemy.tscn" id="6_6bch7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hspsx"]
 texture = ExtResource("1_335wp")
@@ -169,17 +173,97 @@ texture = ExtResource("1_335wp")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hspsx")
 
+[sub_resource type="Animation" id="Animation_04dio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, -108)]
+}
+
+[sub_resource type="Animation" id="Animation_8h48e"]
+resource_name = "move"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(288, -108), Vector2(209, -108)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svl7v"]
+_data = {
+"RESET": SubResource("Animation_04dio"),
+"move": SubResource("Animation_8h48e")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dt1vm"]
+distance = -3.0
+
 [node name="Game" type="Node2D"]
 
 [node name="Tilemap (Layer 0)" type="TileMapLayer" parent="."]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAIAPv/AAAAAAAAAAAJAPv/AAAAAAAAAAAKAPv/AAAAAAAAAAALAPv/AAAAAAAAAAAMAP7/AAAAAAAAAAANAP7/AAAAAAAAAAAOAP7/AAAAAAAAAAACAP7/AAAAAAEAAAABAP7/AAAAAAEAAAABAP//AAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAEAAAACAAEAAAAAAAEAAAADAAAAAAAAAAEAAAADAP//AAAAAAEAAAACAP//AAAAAAEAAAABAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAP//AAAAAAEAAAAEAP7/AAAAAAEAAAADAP7/AAAAAAEAAAACAAAAAAAAAAEAAAAFAP//AAAAAAEAAAAFAP7/AAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAEAAAACAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAAAAAAAAAEAAAAGAP//AAAAAAEAAAAGAP7/AAAAAAEAAAAHAP7/AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAEAAAAHAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAEAAAANAP//AAAAAAEAAAAKAPr/AAAAAAUAAAAKAPn/AAAAAAQAAAAKAPj/AAAAAAQAAAAKAPf/AAAAAAMAAAAIAP7/AAAJAAAAAAAJAP7/AAAKAAAAAAAKAP7/AAAKAAAAAAALAP7/AAALAAAAAAAQAPz/AAAAAAAAAAARAPz/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAATAPn/AAAEAAEAAAATAPr/AAAEAAEAAAATAPv/AAAEAAEAAAATAPj/AAAEAAEAAAAUAPz/AAAAAAAAAAAVAPz/AAAAAAAAAAAWAPz/AAAAAAAAAAARAP3/AAAAAAEAAAARAP7/AAAAAAEAAAARAP//AAAAAAEAAAASAP//AAAAAAEAAAASAAAAAAAAAAEAAAASAP7/AAAAAAEAAAASAP3/AAAAAAEAAAATAP3/AAAAAAEAAAAUAP3/AAAAAAEAAAAVAP3/AAAAAAEAAAAWAP3/AAAAAAEAAAAUAP7/AAAAAAEAAAATAP7/AAAAAAEAAAATAP//AAAAAAEAAAAVAP7/AAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAIAPv/AAAAAAAAAAAJAPv/AAAAAAAAAAAKAPv/AAAAAAAAAAALAPv/AAAAAAAAAAAMAP7/AAAAAAAAAAANAP7/AAAAAAAAAAAOAP7/AAAAAAAAAAACAP7/AAAAAAEAAAABAP7/AAAAAAEAAAABAP//AAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAABAAEAAAAAAAEAAAACAAEAAAAAAAEAAAADAAAAAAAAAAEAAAADAP//AAAAAAEAAAACAP//AAAAAAEAAAABAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAP//AAAAAAEAAAAEAP7/AAAAAAEAAAADAP7/AAAAAAEAAAACAAAAAAAAAAEAAAAFAP//AAAAAAEAAAAFAP7/AAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAEAAAACAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAAAAAAAAAEAAAAGAP//AAAAAAEAAAAGAP7/AAAAAAEAAAAHAP7/AAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAEAAAAHAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAEAAAANAP//AAAAAAEAAAAKAPr/AAAAAAUAAAAKAPn/AAAAAAQAAAAKAPj/AAAAAAQAAAAKAPf/AAAAAAMAAAAIAP7/AAAJAAAAAAAJAP7/AAAKAAAAAAAKAP7/AAAKAAAAAAALAP7/AAALAAAAAAAQAPz/AAAAAAAAAAARAPz/AAAAAAAAAAASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAATAPn/AAAEAAEAAAATAPr/AAAEAAEAAAATAPv/AAAEAAEAAAATAPj/AAAEAAEAAAAUAPz/AAAAAAAAAAAVAPz/AAAAAAAAAAAWAPz/AAAAAAAAAAARAP3/AAAAAAEAAAARAP7/AAAAAAEAAAARAP//AAAAAAEAAAASAP//AAAAAAEAAAASAAAAAAAAAAEAAAASAP7/AAAAAAEAAAASAP3/AAAAAAEAAAATAP3/AAAAAAEAAAAUAP3/AAAAAAEAAAAVAP3/AAAAAAEAAAAWAP3/AAAAAAEAAAAUAP7/AAAAAAEAAAATAP7/AAAAAAEAAAATAP//AAAAAAEAAAAVAP7/AAAAAAEAAAAXAPz/AAAAAAEAAAAYAPz/AAAAAAEAAAAZAPz/AAAAAAEAAAAZAPv/AAAAAAEAAAA=")
 tile_set = SubResource("TileSet_u2ipd")
 
 [node name="Player" parent="." instance=ExtResource("1_w08h2")]
+z_index = 5
 position = Vector2(67, -66)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -6)
 zoom = Vector2(4, 4)
+limit_bottom = 100
+limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Platform" parent="." instance=ExtResource("3_35b1h")]
+position = Vector2(288, -108)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_svl7v")
+}
+autoplay = "move"
+
+[node name="Killzone" parent="." instance=ExtResource("4_hnrr0")]
+position = Vector2(130, 118)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-25, -6)
+shape = SubResource("WorldBoundaryShape2D_dt1vm")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("4_buuti")]
+position = Vector2(119, -47)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("4_buuti")]
+position = Vector2(160, -44)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("4_buuti")]
+position = Vector2(209, -47)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("4_buuti")]
+position = Vector2(241, -153)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("4_buuti")]
+position = Vector2(140, -106)
+
+[node name="Enemy" parent="." instance=ExtResource("6_6bch7")]
+position = Vector2(360, -76)
