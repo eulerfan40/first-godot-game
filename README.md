@@ -36,7 +36,7 @@ If using the desktop application:
 ## Resources  
 
 ### Main Curriculum  
-[![Godot Tutorial](https://img.youtube.com/vi/LOhfqjmasi0/0.jpg)](https://www.youtube.com/watch?v=LOhfqjmasi0)  
+[![Godot Tutorial](images/6.png)](https://www.youtube.com/watch?v=LOhfqjmasi0)
 
 ### Useful Links  
 
