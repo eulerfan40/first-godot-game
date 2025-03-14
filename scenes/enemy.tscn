@@ -123,6 +123,14 @@ target_position = Vector2(7, 0)
 [node name="Raycast Left" type="RayCast2D" parent="."]
 target_position = Vector2(-7, 0)
 
+[node name="Raycast Down Left" type="RayCast2D" parent="."]
+position = Vector2(-6, 0)
+target_position = Vector2(0, 17)
+
+[node name="Raycast Down Right" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(0, 17)
+
 [node name="Killzone" parent="." instance=ExtResource("3_xxdeh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]

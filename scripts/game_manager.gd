@@ -3,6 +3,8 @@ extends Node
 var score = 0
 var hasDied = false
 
+@onready var score_text: Label = $ScoreText
+
 func add_point():
 	score += 1
-	print("Coins picked up: " + str(score))
+	score_text.text = "Congratulations! You collected " + str(score) + " coins!"
